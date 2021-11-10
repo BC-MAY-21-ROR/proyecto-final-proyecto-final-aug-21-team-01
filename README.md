@@ -57,3 +57,13 @@ Incluyan en [esta carpeta](/design) su propuesta de diseño
 - [El proceso de pensamiento de diseño](https://www.youtube.com/watch?v=_r0VX-aU_T8)
 - [Metodología Design Thinking. Ejemplos](https://www.youtube.com/watch?v=_ul3wfKss58)
 - [Design Thinking ejemplo sencillo](https://www.youtube.com/watch?v=_H33tA2-j0s)
+
+## Desarrollo
+
+- Clonar repositorio
+- Ejecutar para instalar gemas: bundle install
+- Ejecutar para instalar dependencias: yarn install
+- Si es la primera vez, copiar archivo database.yml.example en database.yml 
+- Colocar variables de entorno correspondientes copiando .env.example en un nuevo archivo .env
+- Ejecutar rails db:create
+- Si no es la primera vez asegurarse de realizar las migraciones con: rails db:migrate
