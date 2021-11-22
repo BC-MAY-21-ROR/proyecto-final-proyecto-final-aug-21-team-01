@@ -9,10 +9,14 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
   end
 
+  describe 'relationship' do
+    it { should have_one(:owned_group).class_name('Group') }
+  end
+
   describe 'user roles enum validation' do
-    it do 
+    it do
       should define_enum_for(:role).
-      with_values([:free, :premium, :superadmin]) 
+      with_values([:free, :premium, :superadmin])
     end
     it 'should create free default free user' do
       should
