@@ -15,6 +15,15 @@ ActiveRecord::Schema.define(version: 2021_11_22_235709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_categories_on_group_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -45,4 +54,6 @@ ActiveRecord::Schema.define(version: 2021_11_22_235709) do
 
   add_foreign_key "groups_users", "groups"
   add_foreign_key "groups_users", "users"
+  add_foreign_key "categories", "groups"
+
 end
