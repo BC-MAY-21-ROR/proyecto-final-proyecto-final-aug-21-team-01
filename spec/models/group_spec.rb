@@ -8,4 +8,9 @@ RSpec.describe Group, type: :model do
     it { should validate_presence_of(:description) }
     it { should validate_numericality_of(:amount) }
   end
+
+  describe 'relationship has and belong to many' do
+    it { should have_and_belong_to_many(:users) }
+  end
+
 end

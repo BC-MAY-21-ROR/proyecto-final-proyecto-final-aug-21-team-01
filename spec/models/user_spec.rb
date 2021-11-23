@@ -9,6 +9,10 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
   end
 
+  describe 'relationship has and belong to many' do
+    it { should have_and_belong_to_many(:groups) }
+  end
+
   describe 'user roles enum validation' do
     it do 
       should define_enum_for(:role).
