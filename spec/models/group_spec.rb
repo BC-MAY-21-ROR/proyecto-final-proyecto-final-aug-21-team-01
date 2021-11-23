@@ -23,4 +23,9 @@ RSpec.describe Group, type: :model do
   describe 'relationship' do
     it { should belong_to(:user) }
   end
+
+  describe 'relationship has and belong to many' do
+    it { should have_and_belong_to_many(:users) }
+  end
+
 end

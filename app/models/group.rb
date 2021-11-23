@@ -11,6 +11,7 @@
 #
 class Group < ApplicationRecord
  belongs_to :user
+ has_and_belongs_to_many :users
  validates :name, :description, presence: true
  validates_numericality_of :amount
 end
