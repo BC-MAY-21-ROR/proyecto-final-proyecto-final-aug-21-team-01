@@ -15,10 +15,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_one :owned_group, foreign_key: "user_id", class_name: "Group"
-  has_and_belongs_to_many :groups
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :owned_groups, foreign_key: "owner_id", class_name: 'Group'
+  has_many :participations, class_name: 'Participant'
+  has_many :groups, through: :participations 
+  
   validates :email, :password, :role, presence: true
   validates :email, uniqueness: true
   #add enum for role integer field(User Free, User Premium and SuperAdmin User)

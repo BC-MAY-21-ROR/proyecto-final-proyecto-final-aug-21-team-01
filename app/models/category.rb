@@ -12,5 +12,5 @@
 class Category < ApplicationRecord
   validates :title, presence: true
   validates_length_of :title, minimum: 4
-  belongs_to :group
+  has_many :groups
 end

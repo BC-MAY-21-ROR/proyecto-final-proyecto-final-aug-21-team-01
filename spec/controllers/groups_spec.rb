@@ -1,6 +1,9 @@
 require 'rails_helper'
 RSpec.describe GroupsController, type: :controller do
-    let(:group) { FactoryBot.create( :group )}
+    let(:user) { create :user  }
+    before(:each) {sign_in user}
+    let(:group) { FactoryBot.create( :group_with_participants )}
+    let(:category) { FactoryBot.create( :category )}
     it { should route(:get, '/groups').to(action: :index) }
     it { should route(:post, '/groups').to(action: :create) }
     it { should route(:get, '/groups/new').to(action: :new) }
@@ -15,7 +18,7 @@ RSpec.describe GroupsController, type: :controller do
             group: group.attributes
             }
             
-            should permit(:name,:description,:amount).
+            should permit(:name, :description, :amount , :owner_id, :category_id, { :participating_users_attributes => [:user_id, :role, :id, :_destroy]} ).
             for(:create, params: params).
             on(:group)
         end
@@ -27,7 +30,7 @@ RSpec.describe GroupsController, type: :controller do
                 group: group.attributes
             }
             
-            should permit(:name,:description,:amount).
+            should permit(:name, :description, :amount, :owner_id, :category_id, { :participating_users_attributes => [:user_id, :role, :id, :_destroy]} ).
             for(:update, params: params).
             on(:group)
         end
