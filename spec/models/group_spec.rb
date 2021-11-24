@@ -12,8 +12,7 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  let(:group) { FactoryBot.create( :group )}
-
+  
   describe 'validations' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:description) }
@@ -21,11 +20,12 @@ RSpec.describe Group, type: :model do
   end
 
   describe 'relationship' do
-    it { should belong_to(:user) }
+    it { should belong_to(:owner).class_name('User') }
+    it { should belong_to(:category) }
   end
 
   describe 'relationship has and belong to many' do
-    it { should have_and_belong_to_many(:users) }
+    it { should have_many(:participants) }
   end
 
 end

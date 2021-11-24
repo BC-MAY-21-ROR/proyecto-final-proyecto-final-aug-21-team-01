@@ -25,11 +25,11 @@ RSpec.describe User, type: :model do
 
 
   describe 'relationship' do
-    it { should have_one(:owned_group).class_name('Group') }
+    it { should have_many(:owned_groups).class_name('Group') }
   end
   
   describe 'relationship has and belong to many' do
-    it { should have_and_belong_to_many(:groups) }
+    it { should have_many(:groups) }
   end
 
   describe 'user roles enum validation' do

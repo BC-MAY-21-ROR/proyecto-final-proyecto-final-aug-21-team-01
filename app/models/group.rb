@@ -10,8 +10,13 @@
 #  updated_at  :datetime         not null
 #
 class Group < ApplicationRecord
- belongs_to :user
- has_and_belongs_to_many :users
+ belongs_to :owner, class_name: 'User'
+ has_many :participating_users, class_name: 'Participant'
+ has_many :participants, through: :participating_users, source: :user
+ belongs_to :category
+ validates :participating_users, presence: true 
+
  validates :name, :description, presence: true
  validates_numericality_of :amount
+ accepts_nested_attributes_for :participating_users, allow_destroy: true
 end
