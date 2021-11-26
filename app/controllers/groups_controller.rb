@@ -1,11 +1,11 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show, :index]
   def index
     @groups = Group.all
   end
 
-  def new 
+  def new
     @group = Group.new
     render :new
   end
@@ -13,21 +13,21 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.owner = current_user
-   
-    if @group.save 
+
+    if @group.save
       redirect_to @group, notice: 'Group was successfully created'
     else
       render :new
     end
   end
 
-  def show 
+  def show
   end
 
-  def edit 
+  def edit
   end
 
-  def update 
+  def update
     if @group.update(group_params)
       redirect_to @group
     else
@@ -35,7 +35,7 @@ class GroupsController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     @group.destroy
     redirect_to group_path, notice:  "El grupo ha sido eliminado exitosamente"
   end
@@ -44,10 +44,11 @@ class GroupsController < ApplicationController
     def set_group
       @group = Group.find params[:id]
     end
-    def group_params 
-      params.require(:group).permit( 
-        :name, 
-        :description, 
+
+    def group_params
+      params.require(:group).permit(
+        :name,
+        :description,
         :amount,
         :owner_id,
         :category_id,
@@ -57,7 +58,6 @@ class GroupsController < ApplicationController
           :id,
           :_destroy
         ]
-
       )
     end
 end
