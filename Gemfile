@@ -34,6 +34,9 @@ gem 'rails-controller-testing'
 gem 'bootsnap', '>= 1.4.4', require: false
 # Implement authentification for the app 
 gem 'devise'
+# Implement authorizatin for the app
+gem 'cancancan'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
