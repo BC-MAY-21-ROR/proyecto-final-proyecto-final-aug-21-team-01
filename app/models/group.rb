@@ -10,13 +10,23 @@
 #  updated_at  :datetime         not null
 #
 class Group < ApplicationRecord
- belongs_to :owner, class_name: 'User'
- has_many :participating_users, class_name: 'Participant'
- has_many :participants, through: :participating_users, source: :user
- belongs_to :category
- validates :participating_users, presence: true 
+  belongs_to :owner, class_name: 'User'
+  has_many :participating_users, class_name: 'Participant'
+  has_many :participants, through: :participating_users, source: :user
+  belongs_to :category
+  validates :participating_users, presence: true
 
- validates :name, :description, presence: true
- validates_numericality_of :amount
- accepts_nested_attributes_for :participating_users, allow_destroy: true
+  validates :name, :description, presence: true
+  validates_numericality_of :amount
+  accepts_nested_attributes_for :participating_users, allow_destroy: true
+
+  def self.owned_and_participating(current_user_id)
+    joins(:participants)
+      .where(
+        [
+          'owner_id = :current_user_id OR participants.user_id = :current_user_id',
+          { current_user_id: current_user_id }
+        ]
+      ).group(:id)
+  end
 end

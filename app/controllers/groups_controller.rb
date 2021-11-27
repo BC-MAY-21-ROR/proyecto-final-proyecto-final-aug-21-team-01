@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
+# Class to manage the group requests and giving actions for render its views
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :except => [:show, :index]
+  load_and_authorize_resource
+  before_action :set_group, only: %i[show edit update destroy]
+  before_action :authenticate_user!
   def index
-    @groups = Group.all
+    @groups = Group.owned_and_participating(current_user.id)
   end
 
   def new
@@ -20,11 +24,9 @@ class GroupsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @group.update(group_params)
@@ -36,27 +38,28 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    redirect_to group_path, notice:  "El grupo ha sido eliminado exitosamente"
+    redirect_to group_path, notice: 'El grupo ha sido eliminado exitosamente'
   end
 
   private
-    def set_group
-      @group = Group.find params[:id]
-    end
 
-    def group_params
-      params.require(:group).permit(
-        :name,
-        :description,
-        :amount,
-        :owner_id,
-        :category_id,
-        participating_users_attributes: [
-          :user_id,
-          :role,
-          :id,
-          :_destroy
-        ]
-      )
-    end
+  def set_group
+    @group = Group.find params[:id]
+  end
+
+  def group_params
+    params.require(:group).permit(
+      :name,
+      :description,
+      :amount,
+      :owner_id,
+      :category_id,
+      participating_users_attributes: %i[
+        user_id
+        role
+        id
+        _destroy
+      ]
+    )
+  end
 end
