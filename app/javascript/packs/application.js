@@ -11,6 +11,7 @@ import "cocoon";
 import "bootstrap";
 import "css/styles";
 import "channels";
+import "../../../stylesheets/application.scss";
 
 Rails.start();
 Turbolinks.start();
