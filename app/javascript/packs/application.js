@@ -6,11 +6,11 @@
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
-require('jquery');
-import "cocoon";
+require("jquery");
 import "bootstrap";
-import "css/styles";
 import "channels";
+import "cocoon";
+import "css/styles";
 
 Rails.start();
 Turbolinks.start();
