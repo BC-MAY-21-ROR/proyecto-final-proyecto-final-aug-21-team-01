@@ -1,19 +1,26 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+  <strong>Administrator:</strong>
+  <%= @group.owner.email %>
+</p>
 <p>
   <strong>Group Name:</strong>
   <%= @group.name %>
 </p>
-
 <p>
   <strong>Group Description:</strong>
   <%= @group.description %>
 </p>
+<p>
+  <strong>Group Amount:</strong>
+  <%=number_to_currency(@group.amount,locale: :en) %>
+</p>
 <strong>Participants:</strong>
 <%@group.participants.each do |participant| %>
-    <p><%=participant.email%></p>
+  <div class="d-flex">
+    <span> <strong>Email:</strong> <%=participant.email%></span>
+    <span class="mx-2"> <strong>Contribution:</strong> <%=number_to_currency(@group.individual_contribution)%></span>
+  </div>
 <% end %>
-
-
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
