@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage";
 require("jquery");
 import "bootstrap";
 import "channels";
+import "../../../stylesheets/application.scss";
 import "cocoon";
 import "css/styles";
 

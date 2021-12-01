@@ -1,0 +1,20 @@
+@import '../../abstracts/mixins';
+
+.formbutton {
+  background-color: #464343;
+  border-radius: .2rem;
+  border: none;
+  color: white;
+  font-weight: bold;
+  height: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 6rem;
+  width: 100%;
+}
+
+
+@media screen and (min-width: $breakpoint-tablet) {
+  .formbutton {
+    margin-top: 3rem;
+  }
+}

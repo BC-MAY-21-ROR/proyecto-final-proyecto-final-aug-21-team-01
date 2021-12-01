@@ -2,7 +2,7 @@ module ApplicationHelper
   def show_login_link(resource_name)
     content = ''
     if controller_name != 'sessions'
-      content << "#{link_to "Log in", new_session_path(resource_name)} <br />"
+      content << "<p class='ldevise'>Already have an account? #{link_to "Log in", new_session_path(resource_name), class:'nodecoration'}</p> <br />"
     end
     content.html_safe
   end
@@ -10,7 +10,7 @@ module ApplicationHelper
   def show_register_link(resource_name)
     content = ''
     if devise_mapping.registerable? && controller_name != 'registrations'
-      content << "#{link_to "Register", new_registration_path(resource_name)} <br />"
+      content << "<p class='ldevise'>Do not have an account? #{link_to "Register", new_registration_path(resource_name), class:'nodecoration'}</p> <br />"
     end
     content.html_safe
   end
@@ -18,7 +18,7 @@ module ApplicationHelper
   def show_forgot_link(resource_name)
     content = ''
     if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-      content << "#{link_to "Forgot your password?", new_password_path(resource_name)} <br />"
+      content << "#{link_to "Forgot your password?", new_password_path(resource_name), class:'nodecoration ldevise'} <br />"
     end
     content.html_safe
   end
@@ -39,4 +39,9 @@ module ApplicationHelper
     content.html_safe
   end
 
+  def svg(name)
+    file_path = "#{Rails.root}/app/assets/images/#{name}.svg"
+    return File.read(file_path).html_safe if File.exists?(file_path)
+    '(not found)'
+  end
 end
