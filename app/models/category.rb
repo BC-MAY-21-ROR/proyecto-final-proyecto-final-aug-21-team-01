@@ -3,9 +3,8 @@
 # Table name: categories
 #
 #  id          :bigint           not null, primary key
-#  title       :string
 #  description :string
-#  group_id    :bigint           not null
+#  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
