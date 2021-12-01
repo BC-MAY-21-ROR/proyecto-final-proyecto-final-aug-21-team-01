@@ -10,8 +10,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= render 'layouts/partials/nav' %>
-    <%= render 'layouts/partials/messages' %>
+
+    <% if current_page?(root_path) %>
+      <%= render 'layouts/partials/nav_public' %>
+    <% else %>
+      <%= render 'layouts/partials/nav_private' %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
