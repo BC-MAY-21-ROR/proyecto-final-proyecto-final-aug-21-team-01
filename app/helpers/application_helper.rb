@@ -44,4 +44,8 @@ module ApplicationHelper
     return File.read(file_path).html_safe if File.exists?(file_path)
     '(not found)'
   end
+
+  def class_private(css)
+    classes = css ? "public" : "private"
+  end
 end
