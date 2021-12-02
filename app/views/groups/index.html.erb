@@ -1,25 +1,16 @@
-<h2>Groups for <%= current_user.email %> </h2>
-<h2>Amount Groups Contribution <%= number_to_currency(current_user.groups_contribution) %> </h2>
-<%= link_to 'New Group', new_group_path %>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Created by</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td><%= group.description %></td>
-        <td><%= group.owner.email %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+	<h2>Groups Contribution: <%= number_to_currency(current_user.groups_contribution) %> </h2>
+	<div class="row">
+		<h3>My Groups</h3>
+		<%= render @groups_owned %>
+	</div>
+	<div class="row">
+		<h3>Groups where i am</h3>
+		<%= render @groups %>
+	</div>
+	<div class="row">
+		<div class="d-flex my-5 justify-content-center flex-column col-6 offset-3">
+			<%=create_group_button(current_user) %>
+		</div>
+	</div>
+</div>

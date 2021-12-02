@@ -1,5 +1,6 @@
-<h1>Edit Group</h1>
+<div class="col-6 offset-3">
+	<h1>Edit Group</h1>
+	<%= link_to 'Back', groups_path, class:'btn btn-outline-info' %>
+	<%= link_to 'Show', @group , class:'btn btn-outline-info '%>
+</div>
 <%= render 'form', group: @group %>
-
-<%= link_to 'Back', groups_path %>
-<%= link_to 'Show', @group %>
