@@ -37,4 +37,8 @@ class User < ApplicationRecord
     groups_particiations_amount = groups.map(&:individual_contribution)
     (groups_owmed_amount.reduce(:+) + groups_particiations_amount.reduce(:+))
   end
+
+  def can_create_groups?
+    (role == 'free' && owned_groups.count < 4) || (role == 'premium')
+  end
 end
