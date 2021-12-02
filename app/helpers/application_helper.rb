@@ -39,13 +39,13 @@ module ApplicationHelper
     content.html_safe
   end
 
-  def svg(name)
-    file_path = "#{Rails.root}/app/assets/images/#{name}.svg"
-    return File.read(file_path).html_safe if File.exists?(file_path)
-    '(not found)'
+  def render_svg(name, styles:"fill-current text-red-400 icon-sm", title:nil)
+    filename = "#{name}.svg"
+    title ||= name.underscore.humanize
+    inline_svg_tag("icons/#{filename}", aria: true, nocomment:true, title: title, class: styles)
   end
 
-  def class_private(css)
-    classes = css ? "public" : "private"
+  def class_private(css = false)
+    css ? "public" : "private"
   end
 end

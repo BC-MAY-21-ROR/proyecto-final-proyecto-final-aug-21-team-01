@@ -1,28 +1,28 @@
-<section>
-  <div>
+<section class="nav-bar">
+  <div class="nav-bar__container">
     <div>
-      <%# SVG %>
+      <%= render_svg 'logo-header', styles: 'nav-bar__logo' %>
     </div>
-    
-    <ul>
-      <li>
+
+    <ul class="section-container">
+      <li class="section-container__link">
         <%= link_to "PRODUCTS", "#products" %>
       </li>
-      <li>
+      <li class="section-container__link">
         <%= link_to "PRICING", "#pricing" %>
       </li>
-      <li>
+      <li class="section-container__link">
         <%= link_to "ABOUT US", "#about-us" %>
       </li>
     </ul>
-    
-    <div>
-      <%= render 'layouts/partials/user_options' %>
+
+    <div class="buttons-container">
       <%= render 'layouts/partials/messages' %>
+      <%= render 'layouts/partials/user_options', style_nav: true %>
     </div>
 
-    <div>
-      <%# SVG %>
+    <div class="hamburguer-icon">
+      <%= render_svg 'hamburger-icon'%>
     </div>
   </div>
 </section>
