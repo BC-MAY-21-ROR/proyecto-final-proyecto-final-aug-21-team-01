@@ -6,17 +6,21 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
   before_action :authenticate_user!
   def index
-    @groups = Group.owned_and_participating(current_user.id)
+    @groups = Group.participating(current_user.id)
+    @groups_owned = Group.owned(current_user.id)
   end
 
   def new
-    @group = Group.new
+    if current_user.can_create_groups?
+      @group = Group.new
+    else
+      redirect_to groups_path, notice: 'You need upgrade your account to create more groups'
+    end
   end
 
   def create
     @group = Group.new(group_params)
     @group.owner = current_user
-
     if @group.save
       redirect_to @group, notice: 'Group was successfully created'
     else
@@ -32,13 +36,13 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to @group
     else
-      head :unprocessable_entity
+      render :edit
     end
   end
 
   def destroy
     @group.destroy
-    redirect_to group_path, notice: 'El grupo ha sido eliminado exitosamente'
+    redirect_to groups_path, notice: 'El grupo ha sido eliminado exitosamente'
   end
 
   private
@@ -54,12 +58,7 @@ class GroupsController < ApplicationController
       :amount,
       :owner_id,
       :category_id,
-      participating_users_attributes: %i[
-        user_id
-        role
-        id
-        _destroy
-      ]
+      participating_users_attributes: Participant.attribute_names.map(&:to_sym).push(:_destroy)
     )
   end
 end

@@ -1,0 +1,22 @@
+<div class="card mb-3 col-4 border-0 text-dark nav-link">
+	<%= image_tag "https://dummyimage.com/600x400/000000/9e9e9e&text=#{group.name.parameterize(separator:'+')}", alt: 'src', class:'card-img-top' %>
+	<div class="card-body">
+		<%= link_to group, class:'text-dark nav-link text-center text-uppercase border-bottom border-dark mb-2' do %>
+			<h5 class="card-title my-0"><%= group.name %></h5>
+		<% end %>
+		<p class="card-text"><strong>Amount:</strong> <%= number_to_currency(group.amount) %></p>
+		<p class="card-text"><strong>My Contribution:</strong> <%= number_to_currency(group.individual_contribution) %></p>
+	</div>
+	<div class="card-footer border border-dark text-dark d-flex justify-content-center align-items-center">
+		<div class="d-flex flex-column mx-2 justify-content-start">
+			<small class="text-muted">Created <%= time_ago_in_words(group.created_at)  %></small>
+			<div class="border-bottom border-white p-2">
+				Participants <%= group.participants.size %>
+			</div>
+		</div>
+		<div class="d-flex flex-column mx-2">
+			<%= link_to 'Edit', edit_group_path(group), class:'btn btn-info my-1' %>
+			<%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger my-1'  %>
+		</div>
+	</div>
+</div>

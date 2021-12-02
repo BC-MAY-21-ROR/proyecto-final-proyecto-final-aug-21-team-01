@@ -1,26 +1,41 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Administrator:</strong>
-  <%= @group.owner.email %>
-</p>
-<p>
-  <strong>Group Name:</strong>
-  <%= @group.name %>
-</p>
-<p>
-  <strong>Group Description:</strong>
-  <%= @group.description %>
-</p>
-<p>
-  <strong>Group Amount:</strong>
-  <%=number_to_currency(@group.amount,locale: :en) %>
-</p>
-<strong>Participants:</strong>
-<%@group.participants.each do |participant| %>
-  <div class="d-flex">
-    <span> <strong>Email:</strong> <%=participant.email%></span>
-    <span class="mx-2"> <strong>Contribution:</strong> <%=number_to_currency(@group.individual_contribution)%></span>
-  </div>
-<% end %>
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<div class="container">
+	<div class="row">
+		<div class="col-6 offset-3">
+			<%= image_tag "https://dummyimage.com/600x400/000000/9e9e9e&text=#{@group.name.parameterize(separator:'+')}", alt: 'src', class:'img-fluid' %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6 offset-3">
+			<p id="notice"><%= notice %></p>
+			<p>
+				<strong>Administrator:</strong>
+				<%= @group.owner.email %>
+			</p>
+			<p>
+				<strong>Group Name:</strong>
+				<%= @group.name %>
+			</p>
+			<p>
+				<strong>Group Description:</strong>
+				<%= @group.description %>
+			</p>
+			<p>
+				<strong>Group Amount:</strong>
+				<%=number_to_currency(@group.amount,locale: :en) %>
+			</p>
+			<div class="my-3">
+				<strong>Participants:</strong>
+				<%@group.participants.each do |participant| %>
+					<div class="d-flex">
+						<span> <strong>Email:</strong> <%=participant.email%></span>
+						<span class="mx-2"> <strong>Contribution:</strong> <%=number_to_currency(@group.individual_contribution)%></span>
+					</div>
+				<% end %>
+			</div>
+			<div class="row border-top border-gray mt-3 pt-3 mb-5 justify-content-between">
+				<%= link_to 'Edit', edit_group_path(@group), class:'btn btn-outline-dark col-5' %>
+				<%= link_to 'Back', groups_path , class:'btn btn-outline-dark col-5'%>
+			</div>
+		</div>
+	</div>
+</div>

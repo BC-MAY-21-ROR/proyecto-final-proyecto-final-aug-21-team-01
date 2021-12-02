@@ -48,4 +48,30 @@ module ApplicationHelper
   def class_private(css = false)
     css ? "public" : "private"
   end
+
+  def create_group_button(current_user)
+    content = ''
+    if current_user.can_create_groups?
+      link_to 'CREATE GROUP', new_group_path, class:'btn btn-dark'
+    else
+      content << '<p>You can create only a maximum of 4 groups,if you want to create more groups you need to upgrade your account to premium</p>'
+      content << "#{link_to 'UPGRADE PLAN', '#', class:'btn btn-dark'} <br />"
+      content.html_safe
+    end
+    
+  end
+
+  def create_participants_button(form, current_user)
+    content = ''
+    if current_user.can_create_participants?
+      link_to_add_association form, :participating_users, class: 'btn btn-dark' do
+        'Add Participant'
+      end
+    else
+      content << '<p>You can create only a maximum of 4 participants,if you want to create more groups you need to upgrade your account to premium</p>'
+      content << "#{link_to 'UPGRADE PLAN', '#', class: 'btn btn-dark'} <br />"
+      content.html_safe
+    end
+    
+  end
 end

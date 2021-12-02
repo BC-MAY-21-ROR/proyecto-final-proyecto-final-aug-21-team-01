@@ -26,7 +26,7 @@
 class Group < ApplicationRecord
   belongs_to :owner, class_name: 'User'
   has_many :participating_users, class_name: 'Participant'
-  has_many :participants, through: :participating_users, source: :user
+  has_many :participants, through: :participating_users, source: :user, dependent: :destroy
   belongs_to :category
   validates :participating_users, presence: true
   validates :name, :description, presence: true
@@ -38,6 +38,26 @@ class Group < ApplicationRecord
       .where(
         [
           'owner_id = :current_user_id OR participants.user_id = :current_user_id',
+          { current_user_id: current_user_id }
+        ]
+      ).group(:id)
+  end
+
+  def self.participating(current_user_id)
+    joins(:participants)
+      .where(
+        [
+          'participants.user_id = :current_user_id',
+          { current_user_id: current_user_id }
+        ]
+      ).group(:id)
+  end
+
+  def self.owned(current_user_id)
+    joins(:participants)
+      .where(
+        [
+          'owner_id = :current_user_id',
           { current_user_id: current_user_id }
         ]
       ).group(:id)
