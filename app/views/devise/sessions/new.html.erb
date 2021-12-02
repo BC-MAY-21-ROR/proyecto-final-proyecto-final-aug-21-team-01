@@ -1,8 +1,6 @@
 <div class ="main">
   <div class="container">
-    
-    <%= svg 'Mobile-Logo' %>
-
+    <%= render_svg 'Mobile-Logo' %>
     <h1 class="header">Log in</h1>
 
     <div class="center">
@@ -20,7 +18,7 @@
         <div class="actions">
           <%= f.submit "Log in", class: "formbutton" %>
         </div>
-      <% end %>  
+      <% end %>
     </div>
 
     <%= render "devise/shared/links" %>

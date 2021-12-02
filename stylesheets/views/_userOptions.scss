@@ -1,0 +1,27 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins.scss';
+
+.btn-login.public {
+  color: $black;
+  font-size: 1.3rem;
+  margin: 0 2rem;
+  text-decoration: none;
+}
+
+.btn-register.public {
+  background-color: $black;
+  border-radius: .5rem;
+  color: $grey;
+  font-size: 1.3rem;
+  padding: 1.1rem 2.2rem;
+  text-decoration: none;
+}
+
+.btn-logout.public {
+  background-color: $black;
+  border-radius: .5rem;
+  color: $grey;
+  font-size: 1.3rem;
+  padding: 1.1rem 2.2rem;
+  text-decoration: none;
+}

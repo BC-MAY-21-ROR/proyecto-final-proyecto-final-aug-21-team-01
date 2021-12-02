@@ -32,10 +32,11 @@ gem 'rails-controller-testing'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-# Implement authentification for the app 
+# Implement authentification for the app
 gem 'devise'
 # Implement authorizatin for the app
 gem 'cancancan'
+gem 'inline_svg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,7 +57,7 @@ group :development do
   # Set attributes with string description at the top of the models
   gem 'annotate'
 end
-group :test do 
+group :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'faker'

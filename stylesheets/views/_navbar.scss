@@ -1,0 +1,72 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins.scss';
+
+.nav-bar {
+  background-color: $grey;
+  height: 4.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+
+  @media only screen and (min-width: $breakpoint-tablet) {
+    height: 5.5rem;
+  }
+
+
+  &__container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  &__logo {
+    margin-left: 1.5rem;
+    width: 8rem;
+    margin-right: 10rem;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      margin: 0;
+      width: 11rem;
+    }
+  }
+
+
+  .section-container {
+    display: none;
+    list-style: none;
+    padding-left: 0;
+    padding-top: 1rem;
+
+    @media only screen and (min-width: $breakpoint-tablet ) {
+      display: flex;
+    }
+
+    &__link > a {
+      color: $black;
+      font-size: 1.2rem;
+      margin: 0 2rem;
+      text-decoration: none;
+    }
+  }
+
+  .buttons-container {
+    display: none;
+
+    @media only screen and (min-width: $breakpoint-tablet ) {
+      display: block;
+      margin-right: 1.5rem;
+      text-decoration: none;
+    }
+  }
+
+  .hamburguer-icon {
+    margin-right: 1.5rem;
+    width: 2rem;
+
+    @media only screen and (min-width: $breakpoint-tablet ) {
+      display: none;
+    }
+  }
+}
