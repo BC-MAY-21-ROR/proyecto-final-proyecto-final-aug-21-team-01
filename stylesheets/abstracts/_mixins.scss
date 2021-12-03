@@ -1,1 +1,7 @@
 $breakpoint-tablet: 1440px;
+
+@mixin responsive($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
