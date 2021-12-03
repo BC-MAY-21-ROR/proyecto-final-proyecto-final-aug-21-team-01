@@ -1,19 +1,19 @@
 .hero {
-  padding: 1rem;
   min-height: 100vh;
+  padding: 1rem;
 
   &__container {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
 
     @media only screen and (min-width: $breakpoint-tablet) {
-      height: 75%;
       flex-direction: row;
-      text-align: start;
+      height: 75%;
       margin-left: 3rem;
+      text-align: start;
     }
   }
 
@@ -53,12 +53,11 @@
   }
 
   &__image {
-    width: 19.5rem;
     margin-top: 5rem;
+    width: 19.5rem;
 
     @media only screen and (min-width: $breakpoint-tablet) {
-      width: 42.5rem
+      width: 42.5rem;
     }
   }
-
 }

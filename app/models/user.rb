@@ -33,9 +33,11 @@ class User < ApplicationRecord
   # add enum for role integer field(User Free, User Premium and SuperAdmin User)
   enum role: { free: 0, premium: 1, superadmin: 2 }
   def groups_contribution
-    groups_owmed_amount = owned_groups.map(&:individual_contribution)
+    groups_owned_amount = owned_groups.map(&:individual_contribution)
     groups_particiations_amount = groups.map(&:individual_contribution)
-    (groups_owmed_amount.reduce(:+) + groups_particiations_amount.reduce(:+))
+    groups_owned_amount = groups_owned_amount.size.positive? ? groups_owned_amount.reduce(:+) : 0 
+    groups_particiations_amount = groups_particiations_amount.size.positive? ? groups_particiations_amount.reduce(:+) : 0
+    (groups_owned_amount + groups_particiations_amount)
   end
 
   def can_create_groups?
