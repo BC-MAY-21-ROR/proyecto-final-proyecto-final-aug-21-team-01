@@ -63,7 +63,11 @@ class Group < ApplicationRecord
       ).group(:id)
   end
 
+  def quantity_of_people_in_group
+    participating_users.size + 1
+  end
+
   def individual_contribution
-    (amount / participants.count)
+    (amount / quantity_of_people_in_group)
   end
 end
