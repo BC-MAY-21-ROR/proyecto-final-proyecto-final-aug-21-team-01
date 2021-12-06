@@ -1,8 +1,8 @@
 .info {
   display: flex;
   justify-content: center;
-  padding-bottom: 1.6rem;
-  padding-top: 1.6rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 
   &__container {
     display: flex;
@@ -32,8 +32,8 @@
   }
 
   @include responsive(780px) {
-    padding-bottom: 9rem;
-    padding-top: 9rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
 
     &__container {
       padding: 0 70px;
