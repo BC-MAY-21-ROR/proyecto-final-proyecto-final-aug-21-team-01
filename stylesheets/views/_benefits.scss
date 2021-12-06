@@ -1,0 +1,92 @@
+.benefits {
+  
+ 
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__container-title {
+    text-align: center;
+
+    h1 {
+      font-size: 2.25rem;
+
+      @media only screen and (min-width: $breakpoint-tablet) {
+        font-size: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+  }
+
+  &__container-data {
+    @media only screen and (min-width: $breakpoint-tablet) {
+      display: flex;
+      flex-direction: row;
+      max-width: 100%;
+    }
+  }
+
+  &__container-sections {
+    text-align: center;
+  }
+
+  &__container-information {
+    margin: 1.5rem 1rem;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    width: 7rem;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      margin-right: 3rem;
+      width: 8rem;
+    }
+  }
+
+  &__texts-container {
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      text-align: initial;
+      max-width: 26rem;
+    }
+  }
+
+  &__title-benefits {
+    font-size: 1.875rem;
+
+    @media only screen and (min-width:$breakpoint-tablet) {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__subtitle-benefits {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.125rem;
+    line-height: 21px;
+
+    @media only screen and (min-width:$breakpoint-tablet) {
+      font-size: 1.5rem;
+    }
+  }
+  &__container-image {
+    display: none;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      display: block;
+    }
+  }
+
+  &__image-iphone-guy {
+    width: 30rem;
+    height: 26.5rem;
+  }
+}
