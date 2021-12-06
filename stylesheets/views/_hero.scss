@@ -1,5 +1,5 @@
 .hero {
-  min-height: 100vh;
+  max-height: 100vh;
   padding: 1rem;
 
   &__container {
@@ -11,7 +11,6 @@
 
     @media only screen and (min-width: $breakpoint-tablet) {
       flex-direction: row;
-      height: 75%;
       margin-left: 3rem;
       text-align: start;
     }
@@ -48,7 +47,7 @@
 
   &__container-image {
     @media only screen and (min-width: $breakpoint-tablet) {
-      width: 50%;
+     max-width: 80%;
     }
   }
 
