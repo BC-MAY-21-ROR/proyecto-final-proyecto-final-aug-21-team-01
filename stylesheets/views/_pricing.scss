@@ -1,0 +1,149 @@
+.pricing {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark-grey;
+    padding: 2rem 0;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      background-color: $white;
+    }
+  }
+
+  &__container-title {
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.875rem;
+      color: $white;
+
+      @media only screen and (min-width: $breakpoint-tablet) {
+        color: $black;
+        font-size: 3rem;
+      }
+    }
+
+    h2 {
+     display: none;
+
+     @media only screen and (min-width: $breakpoint-tablet) {
+       display: block;
+       font-weight: normal;
+       font-size: 1.5rem;
+     }
+    }
+  }
+
+  &__container-plans {
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+
+  }
+
+  &__container-plan {
+    margin-top: 2rem;
+  }
+
+  &__container-information {
+    border-style: solid;
+    margin: 1rem 0;
+    border-radius: 2rem;
+    border-color: $grey;
+    border-width: 0.32rem;
+    text-align: center;
+    align-items: center;
+    padding: 1rem 1.5rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      border-color: $black;
+      flex-direction: column;
+      text-align: center;
+      height: 25rem;
+      width: 16rem;
+    }
+
+    h1 {
+      font-size: 1.125rem;
+      color: $grey;
+      margin-right: 1rem;
+      font-weight: bold;
+      margin: 0;
+
+      @media only screen and (min-width: $breakpoint-tablet) {
+       color: $black;
+       margin-right: 0;
+       font-size: 2.5rem;
+       margin-bottom: 1rem;
+      }
+    }
+
+    h2 {
+      font-size: 1.125rem;
+      color: $grey;
+      font-weight: bold;
+      margin: 0 .5rem;
+
+      @media only screen and (min-width: $breakpoint-tablet) {
+        color: $black;
+        font-size: 2.5rem;
+       }
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      color: $grey;
+      font-weight: normal;
+      margin: 0;
+
+      @media only screen and (min-width: $breakpoint-tablet) {
+        color: $black;
+        font-size: 2.5rem;
+       }
+    }
+  }
+
+  &__title-pricing {
+    padding-left: 2rem;
+
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      padding-left: 0;
+    }
+  }
+
+  &__icon-free {
+    width: 3.125rem;
+    margin-right: 1rem;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      margin-right: 0;
+      width: 5.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__icon-premium {
+    width: 3.125rem;
+    margin-right: 1rem;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      margin-right: 0;
+      width: 5.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
