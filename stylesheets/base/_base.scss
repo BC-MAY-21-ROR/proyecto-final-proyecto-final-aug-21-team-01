@@ -1,5 +1,14 @@
 body {
   background-color: #F6F6F6;
   max-width: 100%;
-  
+}
+
+.hr {
+  height:2px;
+  border-width:0;
+  color: $black;
+  background-color: $black;
+  width: 90%;
+  margin: 5rem 5%;
+  opacity: 50%;
 }
