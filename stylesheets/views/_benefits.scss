@@ -1,10 +1,10 @@
 .benefits {
-  
- 
+
   &__container {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: 7rem 0;
   }
 
   &__container-title {
@@ -53,8 +53,8 @@
   &__texts-container {
 
     @media only screen and (min-width: $breakpoint-tablet) {
-      text-align: initial;
       max-width: 26rem;
+      text-align: initial;
     }
   }
 
@@ -68,9 +68,9 @@
   }
 
   &__subtitle-benefits {
+    font-size: 1.125rem;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.125rem;
     line-height: 21px;
 
     @media only screen and (min-width:$breakpoint-tablet) {
@@ -86,7 +86,7 @@
   }
 
   &__image-iphone-guy {
-    width: 30rem;
     height: 26.5rem;
+    width: 30rem;
   }
 }
