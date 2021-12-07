@@ -1,6 +1,3 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins.scss';
-
 .btn-login.public {
   color: $black;
   font-size: 1.3rem;
@@ -10,7 +7,7 @@
 
 .btn-register.public {
   background-color: $black;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   color: $grey;
   font-size: 1.3rem;
   padding: 1.1rem 2.2rem;
@@ -19,9 +16,29 @@
 
 .btn-logout.public {
   background-color: $black;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   color: $grey;
   font-size: 1.3rem;
   padding: 1.1rem 2.2rem;
   text-decoration: none;
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .btn-login.public {
+    font-size: 1rem;
+    margin: 1rem;
+  }
+
+  .btn-register.public {
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0;
+  }
+
+  .btn-logout.public {
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
 }
