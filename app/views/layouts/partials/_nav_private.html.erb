@@ -1,13 +1,30 @@
-<section>
-  <div>
-    <div>
-      <%# SVG %>
-    </div>
-
-    <div>
-      <%= render 'layouts/partials/user_options', style_nav: false %>
-      <%= render 'layouts/partials/messages' %>
-    </div>
-
-  </div>
-</section>
+<nav class="nav-bar">
+	<div class="nav-bar__container">
+		<div>
+			<% if current_user %>
+				<%= link_to groups_path, class: 'link' do %>
+					<%= render_svg 'logo-header', styles: 'nav-bar__logo' %>
+				<% end %>
+			<% else %>
+				<%= link_to root_path, class: 'link' do %>
+					<%= render_svg 'logo-header', styles: 'nav-bar__logo' %>
+				<% end %>
+			<% end %>
+		</div>
+		<ul class="section-container">
+			<% unless !current_user %>
+				<li class="section-container__link">
+					<%= link_to "Groups", groups_path %>
+				</li>
+			<% end %>
+		</ul>
+		<div class="buttons-container">
+			<% unless !current_user %>
+				<%= render 'layouts/partials/user_account' %>
+			<% end %>
+		</div>
+		<div class="hamburguer-icon">
+			<%= render_svg 'hamburger-icon'%>
+		</div>
+	</div>
+</nav>

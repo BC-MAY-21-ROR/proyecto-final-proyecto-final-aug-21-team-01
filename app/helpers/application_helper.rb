@@ -49,16 +49,23 @@ module ApplicationHelper
     css ? "public" : "private"
   end
 
+  def render_plan_description(current_user)
+    if current_user.premium?
+      '<p>You can create unlimited groups for sharing costs and bills</p>'.html_safe
+    else
+      '<p>You can create 4 groups for sharing cost and groupal bills</p>'.html_safe
+    end
+  end
+
   def create_group_button(current_user)
     content = ''
     if current_user.can_create_groups?
       link_to 'CREATE GROUP', new_group_path, class:'btn btn-dark'
     else
       content << '<p>You can create only a maximum of 4 groups,if you want to create more groups you need to upgrade your account to premium</p>'
-      content << "#{link_to 'UPGRADE PLAN', '#', class:'btn btn-dark'} <br />"
+      content << "#{link_to 'UPGRADE PLAN', upgrade_path, method: :post, remote: true, class: 'btn btn-dark'} <br />"
       content.html_safe
     end
-    
   end
 
   def create_participants_button(form, current_user)

@@ -5,9 +5,10 @@ class GroupsController < ApplicationController
   load_and_authorize_resource
   before_action :set_group, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  layout 'dashboard'
   def index
+    @groups_owned = Group.owned_restrict_groups(current_user)
     @groups = Group.participating(current_user.id)
-    @groups_owned = Group.owned(current_user.id)
   end
 
   def new

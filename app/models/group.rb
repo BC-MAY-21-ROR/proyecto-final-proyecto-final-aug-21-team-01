@@ -50,7 +50,7 @@ class Group < ApplicationRecord
           'participants.user_id = :current_user_id',
           { current_user_id: current_user_id }
         ]
-      ).group(:id)
+      ).group(:id).order(created_at: :desc)
   end
 
   def self.owned(current_user_id)
@@ -60,7 +60,11 @@ class Group < ApplicationRecord
           'owner_id = :current_user_id',
           { current_user_id: current_user_id }
         ]
-      ).group(:id)
+      ).group(:id).order(created_at: :desc)
+  end
+
+  def self.owned_restrict_groups(current_user)
+    current_user.premium? ? owned(current_user.id) : owned(current_user.id).limit(4)
   end
 
   def quantity_of_people_in_group

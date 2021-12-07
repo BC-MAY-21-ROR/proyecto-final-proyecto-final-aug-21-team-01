@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<div class="col-6 offset-3">
+			<h3>My Suscription Plan</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6 offset-3">
+			<div class="card">
+				<div class="card-body text-center">
+					<h5 class="card-title"><%= current_user.role.upcase  %></h5>
+					<p class="card-text"><%= render_plan_description(current_user) %></p>
+					<% if current_user.premium? %>
+						<%= link_to downgrade_path, class: 'btn btn-outline-dark', method: :post do %>
+							Change my Plan to free
+						<% end %>
+					<% else %>
+						<%= link_to upgrade_path, class: 'btn btn-dark' , method: :post, remote: true do %>
+							Upgrade Plan to Premium
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
