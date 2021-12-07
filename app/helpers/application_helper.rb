@@ -2,7 +2,7 @@ module ApplicationHelper
   def show_login_link(resource_name)
     content = ''
     if controller_name != 'sessions'
-      content << "<p class='ldevise'>Already have an account? #{link_to "Log in", new_session_path(resource_name), class:'nodecoration'}</p> <br />"
+      content << "<p class='form__label'>Already have an account? #{link_to "Log in", new_session_path(resource_name), class:'form__link'}</p> <br />"
     end
     content.html_safe
   end
@@ -10,7 +10,7 @@ module ApplicationHelper
   def show_register_link(resource_name)
     content = ''
     if devise_mapping.registerable? && controller_name != 'registrations'
-      content << "<p class='ldevise'>Do not have an account? #{link_to "Register", new_registration_path(resource_name), class:'nodecoration'}</p> <br />"
+      content << "<p class='form__label'>Do not have an account? #{link_to "Register", new_registration_path(resource_name), class:'form__link'}</p> <br />"
     end
     content.html_safe
   end
@@ -18,7 +18,7 @@ module ApplicationHelper
   def show_forgot_link(resource_name)
     content = ''
     if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-      content << "#{link_to "Forgot your password?", new_password_path(resource_name), class:'nodecoration ldevise'} <br />"
+      content << "#{link_to "Forgot your password?", new_password_path(resource_name), class:'form__link'} <br />"
     end
     content.html_safe
   end

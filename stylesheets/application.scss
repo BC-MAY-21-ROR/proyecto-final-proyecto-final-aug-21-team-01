@@ -1,10 +1,8 @@
+@import "abstracts/mixins";
 @import "abstracts/variables";
 @import "base/base";
-@import "application/objects/inputs";
-@import "application/objects/buttons";
-@import "application/objects/labels";
+@import "base/form";
 @import "application/typography";
-@import "abstracts/mixins";
 @import "views/navbar";
 @import "views/userOptions";
 @import "views/hero";
@@ -12,3 +10,6 @@
 @import "views/about";
 @import "views/benefits";
 @import "views/pricing";
+@import "views/footer";
+@import "views/login";
+@import "views/register"

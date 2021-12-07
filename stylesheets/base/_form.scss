@@ -1,0 +1,54 @@
+.form {
+    
+  @media screen and (min-width: $breakpoint-tablet) {
+    font-size: 1.5rem;
+  }
+
+  &__label {
+    color: $dark-color;
+    font-weight: 700;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  &__input {
+    background-color: $input-grey;
+    border-radius: .2rem;
+    border: solid .05rem $border-grey;
+    padding: .3rem;
+    @media screen and (min-width: $breakpoint-tablet) {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+
+  &__button {
+    background-color: $dark-color;
+    border-radius: .2rem;
+    border: none;
+    color: white;
+    font-weight: bold;
+    height: 2rem;
+    width: 100%;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      height: 3rem;
+      margin-left: 1rem;
+      margin-right: 8rem;
+      width: 90%;
+    }
+  }
+
+  &__spacing {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

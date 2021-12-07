@@ -1,0 +1,31 @@
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 85vh;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    background-color: #444444;
+    font-size: 1.1rem;
+  }
+
+  &__container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      background-color: #F6F6F6;
+      border-radius: 1.5rem;
+      padding-top: 2rem;
+      width: fit-content;
+    }
+  }
+
+  &__header{
+    font-weight: 700;
+    margin-top: 1.5rem;
+  }
+}

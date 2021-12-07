@@ -1,22 +1,20 @@
 .about {
   padding: 1rem;
   margin-bottom: 5rem;
+  background-color: $dark-grey;
+  color: $grey;
 
   &__container {
     align-items: center;
-    background-color: $dark-grey;
-    color: $grey;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2rem;
     text-align: center;
 
     @media only screen and (min-width: $breakpoint-tablet) {
       background-color: $white;
       color: $black;
       flex-direction: row-reverse;
-      flex-direction: row;
       height: 75%;
       margin-left: 3rem;
       padding: 0rem;
@@ -66,6 +64,11 @@
       display: flex;
       width: 50%;
     }
+  }
+
+  @media only screen and (min-width: $breakpoint-tablet) {
+    background-color: $white;
+    color: $black;
   }
 
 }
