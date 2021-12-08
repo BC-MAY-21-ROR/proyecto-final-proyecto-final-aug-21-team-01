@@ -3,6 +3,11 @@
 		<%= render_svg 'user'%> Account
 	<% end %>
 	<div class="dropdown-menu">
+		<% if current_page?(root_path) %>
+			<%= link_to groups_path, class: 'dropdown-item' do %>
+				Groups
+			<% end %>
+    <% end %>
 		<%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
 			Edit Account
 		<% end %>
@@ -12,6 +17,6 @@
 		<%= link_to billing_portal_create_path, class: 'dropdown-item', method: :post do %>
 			Billing
 		<% end %>
-		<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+		<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item exit" %>
 	</div>
 </div>
