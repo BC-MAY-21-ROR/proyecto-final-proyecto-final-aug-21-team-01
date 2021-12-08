@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ProyectoFinalProyectoFinalAug21Team01</title>
+		<title>Kangaroo App</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<%= csrf_meta_tags %>
 		<%= csp_meta_tag %>
@@ -10,6 +10,7 @@
 		<%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'https://js.stripe.com/v3/', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('kangaroo-favicon.png') %>
 	</head>
 	<body>
 		<%= render 'layouts/partials/nav_private' %>
