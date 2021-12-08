@@ -5,11 +5,13 @@
 @import "application/objects/labels";
 @import "application/typography";
 @import "abstracts/mixins";
-@import "views/navbar";
+
 @import "views/userOptions";
-@import "views/hero";
-@import "views/infobar";
 @import "views/about";
 @import "views/benefits";
-@import "views/pricing";
 @import "views/footer";
+@import "views/hero";
+@import "views/infobar";
+@import "views/navbar";
+@import "views/pricing";
+@import "views/userAccount";
