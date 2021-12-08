@@ -1,22 +1,22 @@
-<div class ="main">
-  <div class="container">
-    <%= render_svg 'Mobile-Logo' %>
-    <h1 class="header">Log in</h1>
+<div class ="login">
+  <div class="login__container">
+    <%= render_svg 'logo-header', styles: 'nav-bar__logo' %>
+    <h1 class="login__header">LOGIN</h1>
 
-    <div class="center">
+    <div class="form">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field spacing">
-          <%= f.label :email, class: "formlabel" %><br />
-          <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "forminput", autocomplete: "email" %>
+        <div class="field form__spacing">
+          <%= f.label :email, class: "form__label" %><br />
+          <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form__input", autocomplete: "email" %>
         </div>
 
-        <div class="field spacing">
-          <%= f.label :password, class: "formlabel" %><br />
-          <%= f.password_field :password, placeholder: "Password", class: "forminput", autocomplete: "current-password" %>
+        <div class="field form__spacing">
+          <%= f.label :password, class: "form__label" %><br />
+          <%= f.password_field :password, placeholder: "Password", class: "form__input", autocomplete: "current-password" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Log in", class: "formbutton" %>
+          <%= f.submit "LOGIN", class: "form__button" %>
         </div>
       <% end %>
     </div>

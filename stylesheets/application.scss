@@ -1,15 +1,16 @@
-@import "abstracts/variables";
-@import "base/base";
-@import "application/objects/inputs";
-@import "application/objects/buttons";
-@import "application/objects/labels";
-@import "application/typography";
 @import "abstracts/mixins";
-@import "views/navbar";
-@import "views/userOptions";
-@import "views/hero";
-@import "views/infobar";
+@import "abstracts/variables";
+@import "application/typography";
+@import "base/base";
+@import "base/form";
 @import "views/about";
 @import "views/benefits";
+@import "views/hero";
+@import "views/infobar";
+@import "views/login";
+@import "views/navbar";
 @import "views/pricing";
+@import "views/register";
+@import "views/userOptions";
 @import "views/footer";
+
