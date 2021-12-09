@@ -6,10 +6,12 @@
 
   &__container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
     padding: 0 30px;
     text-align: center;
+    align-items: center;
   }
 
   &__container div {
@@ -55,8 +57,8 @@
 
   @include responsive(1440px) {
     &__container {
-      flex-direction: row;
-      padding: 5rem;
+      flex-direction: column;
+      padding: 1rem;
       width: 100%;
     }
 
