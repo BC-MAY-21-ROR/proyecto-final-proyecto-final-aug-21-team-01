@@ -1,3 +1,12 @@
 .exit {
   color: rgb(221, 92, 92) !important;
 }
+
+.groups-navbar {
+  color: rgb(126, 146, 143) !important;
+  display: none !important;
+
+  @include responsive($breakpoint-tablet) {
+    display: block !important;
+  }
+}
