@@ -3,11 +3,9 @@
 		<%= render_svg 'user'%> Account
 	<% end %>
 	<div class="dropdown-menu">
-		<% if current_page?(root_path) %>
-			<%= link_to groups_path, class: 'dropdown-item' do %>
-				Groups
-			<% end %>
-    <% end %>
+		<%= link_to groups_path, class: 'dropdown-item groups-navbar' do %>
+			Groups
+		<% end %>
 		<%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
 			Edit Account
 		<% end %>

@@ -1,5 +1,12 @@
 <% if signed_in? %>
-  <%= render 'layouts/partials/user_account' %>
+  <div class="d-flex align-items-center">
+    <ul class="section-container">
+      <li class="section-container__link">
+        <%= link_to "Groups", groups_path %>
+      </li>
+    </ul>
+    <%= render 'layouts/partials/user_account' %>
+  </div>
 <% else %>
   <%= link_to "Login", new_user_session_path, class: "btn-login #{class_private(style_nav)}" %>
   <%= link_to "Register", new_user_registration_path, class: "btn-register #{class_private(style_nav)}" %>

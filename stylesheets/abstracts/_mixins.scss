@@ -1,10 +1,7 @@
-
 $breakpoint-tablet: 1000px;
 
-
 @mixin responsive($width) {
-  @media (min-width: $width) {
+  @media (max-width: $width) {
     @content;
   }
 }
-
