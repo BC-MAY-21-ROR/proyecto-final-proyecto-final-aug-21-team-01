@@ -192,6 +192,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.3)
+    ruby_http_client (3.5.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -203,6 +204,8 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    sendgrid-ruby (6.6.0)
+      ruby_http_client (~> 3.4)
     shoulda-matchers (5.0.0)
       activesupport (>= 5.2.0)
     simple_form (5.1.0)
@@ -266,6 +269,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails
   sass-rails (>= 6)
+  sendgrid-ruby (~> 6.6)
   shoulda-matchers
   simple_form
   spring
